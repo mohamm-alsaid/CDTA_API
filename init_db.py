@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 from itertools import cycle
 
-sql_fname = 'MVoTs_schema.sql'
-mvots_fname = 'testingMM_1_SimOut.csv'
-anon_ids = 'anonymized.csv'
+sql_fname = 'mvot_data/MVoTs_schema.sql'
+mvots_fname = 'mvot_data/testingMM_1_SimOut.csv'
+anon_ids = 'mvot_data/anonymized.csv'
 sample_size = 10
 # used to rename columns & used to seed the DB
 keys = {
@@ -41,7 +41,7 @@ records['anon_id'] = '*-*-*-*' # add default IDs
 connection = sqlite3.connect('database.db')
 
 
-with open('MVoTs_schema.sql') as f:
+with open(sql_fname) as f:
     connection.executescript(f.read())
 
 cur = connection.cursor()
