@@ -39,6 +39,8 @@ This is an implementation of `CDTA` server that handles the aggregation of `MVoT
     * Response: XML list of latest MVoT entries from each DTMC
 
 
+## Dependencies
+To install dependencies, use: `pip3 install -r requirements.txt`
 ## Seed the database 
 To seed the DB, use `init_db.py` script. To do so, run: `python3 init_db.py`
 
