@@ -63,7 +63,7 @@ The following is an example of what the XML format __expected__ for a POST reque
 ```
 <?xml version='1.0'?>
 <MVoT>
-    <anon_id>d658d9c9-47b3-4863-9b2d-ca292a4030af</anon_id>
+    <anon_id>substation0:segment7:xformer2:DER 40-50</anon_id>
     <registration_date>1629393715.096357</registration_date>
     <last_timestamp>1629394315.096386</last_timestamp>
     <sdtt>0.1112444366039249</sdtt>

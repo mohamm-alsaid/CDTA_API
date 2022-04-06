@@ -55,6 +55,8 @@ def xml_to_dict(xml):
     for child in root:
         assert child.tag in tags
         result[child.tag] = tags[child.tag](child.text)
+        if tags[child.tag] == float or tags[child.tag] == int:
+            result[child.tag] = round(result[child.tag],5)
     # ensure data is sorted
     ordering = {v: i for i, v in enumerate(tags)}
 

@@ -1,5 +1,7 @@
 #make a POST request
-import requests, xml.etree.ElementTree as ET
+import requests, pandas as pd, xml.etree.ElementTree as ET
+
+anonymized_id = 'mvot_data/anonymized.csv'
 port = 80
 
 res = requests.get(f'http://localhost:{port}/MVoT')
@@ -11,10 +13,14 @@ for child in root[-2:]:
    print(ET.tostring(child).decode())
 
 
+# Randomly pick some ID from the anonymized ID file 
+df = pd.read_csv(anonymized_id)
+anon_id = df.sample().values[0]
+anon_id = ':'.join(anon_id)
 
-xml = """<?xml version='1.0'?>
+xml = f"""<?xml version='1.0'?>
     <MVoT>
-      <anon_id>test-test-test-*</anon_id>
+      <anon_id>{anon_id}</anon_id>
       <registration_date>1629393715.096357</registration_date>
       <last_timestamp>1629394315.096386</last_timestamp>
       <sdtt>0.1112444366039249</sdtt>
@@ -34,8 +40,8 @@ xml = """<?xml version='1.0'?>
       <count_unexpected_msgs>0</count_unexpected_msgs>
    </MVoT>
 """
+
 headers = {'Content-Type': 'application/xml'} # set what your server accepts
-# print requests.post('http://httpbin.org/post', data=xml, headers=headers).text
 res = requests.post(f'http://localhost:{port}/MVoT', data=xml, headers=headers)
 
 print('POST response from server:',res)

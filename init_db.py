@@ -36,7 +36,10 @@ ids = pd.read_csv(anon_ids)
 
 sample_ids = ids.iloc[:sample_size]
 sample_ids = sample_ids.apply(lambda x: ':'.join(x).replace(' ',''),axis='columns')
-records['anon_id'] = '*-*-*-*' # add default IDs
+# round records
+# records = records[list(keys.values())[1:]]
+# records = records[records != 'actor'].apply(lambda x: round(x,5))
+records['anon_id'] = '*:*:*:*' # add default IDs
 
 connection = sqlite3.connect('database.db')
 
@@ -46,7 +49,7 @@ with open(sql_fname) as f:
 
 cur = connection.cursor()
 
-for (i,mvot) in records.iterrows():
+for (i,mvot) in records.iloc[:sample_size*4].iterrows():
     print('inserting: ',tuple(mvot)) # exclude actor
     cur.execute(f"INSERT INTO MVoTs VALUES (NULL{', ?'*18})",
                 mvot[['anon_id',
