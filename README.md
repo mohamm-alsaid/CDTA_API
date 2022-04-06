@@ -91,7 +91,7 @@ The following is an example of what the CDTA returns of GET request on the endpo
 <MVoTs>
     <MVoT>
         <mvot_id>1302</mvot_id>
-        <anon_id>*-*-*-*</anon_id>
+        <anon_id>*:*:*:*</anon_id>
         <registration_date>1629393715.096362</registration_date>
         <last_timestamp>1629537715.103173</last_timestamp>
         <sdtt>0.0108067067597848</sdtt>
@@ -113,7 +113,7 @@ The following is an example of what the CDTA returns of GET request on the endpo
     ....
     <MVoT>
         <mvot_id>1924</mvot_id>
-        <anon_id>*-*-*-*</anon_id>
+        <anon_id>*:*:*:*</anon_id>
         <registration_date>1629393715.096365</registration_date>
         <last_timestamp>1629537715.103177</last_timestamp>
         <sdtt>0.0112319018613085</sdtt>
